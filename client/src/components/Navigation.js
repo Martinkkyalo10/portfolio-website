@@ -52,7 +52,7 @@ export default function Navigation() {
         Writing
       </Link>
       <Link to="contact" smooth={true} duration={300} className="card-link">
-        Contact
+        Order Now
       </Link>
     </div>
   );

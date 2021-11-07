@@ -3,10 +3,10 @@ import "./App.css";
 import Articles from "./components/Articles";
 import Banner from "./components/Banner.js";
 import Footer from "./components/Footer.js";
-import Contact from "./components/Contact.js";
 import Projects from "./components/Projects.js";
 import Navigation from "./components/Navigation";
 import ContactInfo from "./components/ContactInfo";
+import OrderScreen from "./components/OrderScreen";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Banner />
       <Projects />
       <Articles />
-      <Contact />
+      <OrderScreen />
       <ContactInfo />
       <Footer />
       <Navigation />
