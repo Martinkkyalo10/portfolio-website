@@ -7,6 +7,7 @@ import Projects from "./components/Projects.js";
 import Navigation from "./components/Navigation";
 import ContactInfo from "./components/ContactInfo";
 import OrderScreen from "./components/OrderScreen";
+import AddPortfolio from "./components/AddPortfolio";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Banner />
       <Projects />
       <Articles />
+      <AddPortfolio />
       <OrderScreen />
       <ContactInfo />
       <Footer />
