@@ -1,10 +1,16 @@
 GET http://localhost:5000/users
 ###
-POST http://localhost:5000/users
+POST http://localhost:5000/projects
 Content-Type: application/json
 {
-"firstname":"John",
-"lastname":"Doe"
+    "_id": "2"
+"category": "app",
+  "client": "wambua",
+ "date": "23",
+  "description": "ecommerce",
+ " url": "String",
+  "tittle": "String",
+  "files:" "String",
 }
 ###
 PATCH http://localhost:5000/users/5d69553736a60d330e6a07a7

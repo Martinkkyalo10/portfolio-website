@@ -37,15 +37,18 @@ router.get("/:id", getProject, (req, res) => {
 });
 
 // Create One Route
-router.post("/", upload.Array("files []"), async (req, res) => {
-  if (req.file) {
-    let path = "";
-    req.files.forEach(function (files, index, arr) {
-      path = path + files.path + ",";
-    });
-    path = path.substring(0, path.lastIndexOf(","));
-    project.file = path;
-  }
+router.post("/", async (req, res) => {
+  upload(req, res, function (err) {
+    if (req.file) {
+      let path = "";
+      req.files.forEach(function (files, index, arr) {
+        path = path + files.path + ",";
+      });
+      path = path.substring(0, path.lastIndexOf(","));
+      project.file = path;
+    }
+  });
+
   const project = new project({
     category: req.body.category,
     client: req.body.client,
