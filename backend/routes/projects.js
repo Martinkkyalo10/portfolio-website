@@ -38,32 +38,22 @@ router.get("/:id", getProject, (req, res) => {
 
 // Create One Route
 router.post("/", async (req, res) => {
-  upload(req, res, function (err) {
-    if (req.file) {
-      let path = "";
-      req.files.forEach(function (files, index, arr) {
-        path = path + files.path + ",";
-      });
-      path = path.substring(0, path.lastIndexOf(","));
-      project.file = path;
-    }
+  const project = new Project({
+    category: "website",
+    title: "Visualising the COVID-19 Spread in Singapore",
+    description:
+      "An interactive visualisation of the spread of COVID-19 in Singapore across time.",
+    stack: ["Python", "Google Sheets API", "Tableau"],
+    imgName: "singapore_covid_spread.gif",
+    siteUrl:
+      "https://public.tableau.com/shared/379FDD4MD?:display_count=n&:origin=viz_share_link",
+    codeUrl: "https://github.com/huishun98/SG-COVID-data-automated",
   });
-
-  const project = new project({
-    category: req.body.category,
-    client: req.body.client,
-    date: req.body.date,
-    description: req.body.description,
-    url: req.body.url,
-    tittle: req.body.tittle,
-    files: req.body.files,
+  const createdProject = await project.save();
+  res.send({
+    message: "Project created successifully",
+    project: createdProject,
   });
-  try {
-    const newProject = await project.save();
-    res.status(201).json({ newProject });
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
 });
 
 // Edit One Route PUT version

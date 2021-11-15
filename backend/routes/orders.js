@@ -48,6 +48,7 @@ router.post("/", async (req, res) => {
   try {
     const newOrder = await order.save();
     res.status(201).json({ newOrder });
+    res.send({ message: "Order created successifully", order: newOrder });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
